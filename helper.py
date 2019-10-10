@@ -5,7 +5,8 @@ import torch
 from torch import nn
 
 #cannot normalize numpy array using standard library
-#write modular code
+#writing modular code
+
 class img_lib:
     def __init__(self , img):
         self.img = img
@@ -18,8 +19,8 @@ class img_lib:
     def get_tensor(self):
         return torch.tensor(self.norm())
 
-    def disp(self , t = "Image"):
-        plt.imshow(self.img )
+    def disp(self):
+        plt.imshow(self.img)
         plt.show()
 
 def gram_matrix(feature_maps):
@@ -33,7 +34,7 @@ class StyleLoss(nn.Module):
     def __init__(self, t_img):
         super().__init__()
         #Vanishing Gradient or Explosive Gradients
-        #Had to debug this shit for two hours , still don't know why clipping the backprop did not work
+        #Had to debug this for two hours , still don't know why clipping the backprop did not work
         self.target =t_img.detach()
 
     def forward(self , i_img):
