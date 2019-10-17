@@ -11,6 +11,7 @@ class img_lib:
     def __init__(self , img):
         self.img = img
         self.shape = img.shape
+    
 
     def norm(self):
         mean , std = np.mean(self.img) , np.std(self.img)
